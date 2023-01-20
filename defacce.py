@@ -1,30 +1,42 @@
 #-*- coding: utf-8 -*-
-
-try:
-   import requests
-   import os.path
-   import sys
-except ImportError:
-   exit("install requests and try again ...")
-
-
+import os.path,sys,requests,rich
+from rich.panel import Panel
+from rich.console import Console
 b = '\033[31m'
 h = '\033[32m'
 m = '\033[00m'
-
-banner = """
-________     ________                  
-___  __ \_______  __/_____ ___________ 
-__  / / /  _ \_  /_ _  __ `/  ___/  _ \ 
-_  /_/ //  __/  __/ / /_/ // /__ /  __/
-/_____/ \___//_/    \__,_/ \___/ \___/ 
-#######################################
-Author   :   BOKI
-WhatsApp :   +6283192495253
-NameTools:   Auto Deface Website
-#######################################
-"""
-
+def clear():
+   os.system('clear')
+def banner():
+	Console(width=100).print(Panel('''[bold white][blue]▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+[purple]██░▄▄▀█░▄▄█░▄▄█░▄▄▀█▀▄▀█░▄▄██
+[blue]██░██░█░▄▄█░▄██░▀▀░█░█▀█░▄▄██
+[purple]██░▀▀░█▄▄▄█▄███▄██▄██▄██▄▄▄██
+[blue]▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+[white]( [green]Deface Method [red]POC[white] )''',title='[bold white][green]>[purple]>[white]Infromation[purple]<[green]<'),justify="center")
+def nonok():
+   clear()
+   banner()
+   Console(width=100).print(Panel('[bold white][[green]01[white]] Pengertian Deface POC\n[white][[green]02[white]] Lanjut Deface\n[white][[red]00[white]] Exit',title='[bold white][green]>[purple]>[white]Menu[purple]<[green]<'))
+   jir = input('input  :  ')
+   if jir in ['01','1']:
+      Console(width=50).print(Panel('''1. pengertian POC
+POC = Proof OF Concept
+Kata kata poc itu lahir pada tahun 1969 nan :v tapi booming
+2. POC : Method
+Poc method itu sering di gunakan pada orang yang gila nebas index geng :v
+contoh saya yak :v saya sering cari poc baru buat nebas index :v
+Contoh method poc deface :
+1 Bypass admin
+2 Sqli (Sql Injection)
+3 WpBruteForce (WPBF) 3.POC : Listing
+POC listing itu tempat dimana orang orang berbagi penemuan bug atau celah pada website geng :v contoh nya website berikut nih yang sering share poc
+https://cxsecurity.com/''',title='Pengertian Deface POC'))
+   elif jir in ['02','2']:
+     main(banner)
+   elif jir in ['00','0']:
+      clear()
+      exit()
 def x(tetew):
    ipt = ''
    if sys.version_info.major > 2:
@@ -57,10 +69,11 @@ def aox(script,target_file="target.txt"):
             print; exit()
 
 def main(__bn__):
-   print(__bn__)
+   clear()
+   banner()
    while True:
       try:
-         a = x("Enter your script deface name: ")
+         a = x("\tEnter your script deface name: ")
          if not os.path.isfile(a):
             print("file '%s' not found"%(a))
             continue
@@ -72,4 +85,4 @@ def main(__bn__):
    aox(a)
 
 if __name__ == "__main__":
-    main(banner)
+   nonok() 
